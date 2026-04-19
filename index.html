@@ -349,7 +349,7 @@ footer{background:var(--dark);padding:40px 48px;display:flex;align-items:center;
   <div id="dashGate" style="display:none">
     <div style="min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:40px">
       <div style="max-width:560px;width:100%;text-align:center">
-        <div style="font-size:52px;margin-bottom:20px">🎬</div>
+        <div style="font-size:52px;margin-bottom:20px"></div>
         <h2 style="font-family:'Playfair Display',serif;font-size:34px;color:var(--dark);margin-bottom:12px">Your dashboard awaits</h2>
         <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:32px;font-weight:300">Upload your Netflix viewing history CSV to generate your personal analytics. Your data stays in your browser — nothing is sent to any server.</p>
 
@@ -358,7 +358,6 @@ footer{background:var(--dark);padding:40px 48px;display:flex;align-items:center;
           ondragover="event.preventDefault();this.classList.add('drag')"
           ondragleave="this.classList.remove('drag')"
           ondrop="handleDashDrop(event)">
-          <div class="ico">📁</div>
           <div class="ut">Drop your Netflix CSV here</div>
           <div class="us" style="margin-bottom:16px">or click to browse your files</div>
           <button class="btn btn-acc" onclick="event.stopPropagation();document.getElementById('dashFileInput').click()">Choose File</button>
@@ -1150,7 +1149,7 @@ function loadExampleData(){
   IS_EXAMPLE = true;
   renderDashboard();
   updateComparePanelA();
-  toast('👀 Showing Victoria\'s example data');
+  toast('Showing Victoria\'s example data');
 }
 
 // ── SHOW / HIDE GATE ──
@@ -3527,7 +3526,7 @@ const PRELOADED = [
   {
     id: 'victoria',
     name: 'Victoria',
-    emoji: '🌸',
+    emoji: '',
     color: '#C4956A',
     desc: '417 eps · K-Drama & Romance · Jun 2025–Apr 2026',
     getData: () => VIC
@@ -3535,7 +3534,7 @@ const PRELOADED = [
   {
     id: 'nat',
     name: 'Nat',
-    emoji: '🧟',
+    emoji: '',
     color: '#A8B5A2',
     desc: '2,280 eps · Walking Dead, Shameless, The 100 · 2018–2026',
     getData: () => parseCSV(RAW_NAT)
@@ -3543,7 +3542,7 @@ const PRELOADED = [
   {
     id: 'dad',
     name: 'Dad',
-    emoji: '👨',
+    emoji: '',
     color: '#B8A9C9',
     desc: '6 eps · Wednesday, Havoc, Kingdom · Aug–Sep 2025',
     getData: () => parseCSV(RAW_DAD)
