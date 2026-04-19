@@ -547,7 +547,7 @@ footer{background:var(--dark);padding:40px 48px;display:flex;align-items:center;
     <!-- Sub-tabs -->
     <div class="comm-subtabs">
       <button class="comm-subtab active" onclick="setCommTab('all',this)">All</button>
-      <button class="comm-subtab" onclick="setCommTab('watching',this)">▶Currently Watching</button>
+      <button class="comm-subtab" onclick="setCommTab('watching',this)">Currently Watching</button>
       <button class="comm-subtab" onclick="setCommTab('discussion',this)">Discussions</button>
       <button class="comm-subtab" onclick="setCommTab('rec',this)">Recommendations</button>
       <button class="comm-subtab" onclick="setCommTab('wrapped',this)">Wrapped</button>
@@ -566,10 +566,10 @@ footer{background:var(--dark);padding:40px 48px;display:flex;align-items:center;
       </div>
       <div class="post-actions-bar">
         <select class="post-type-select" id="postType">
-          <option value="discussion">💬 Discussion</option>
-          <option value="watching">▶️ Currently Watching</option>
-          <option value="rec">⭐ Recommendation</option>
-          <option value="wrapped">🎁 Wrapped</option>
+          <option value="discussion">Discussion</option>
+          <option value="watching">Currently Watching</option>
+          <option value="rec">Recommendation</option>
+          <option value="wrapped">Wrapped</option>
         </select>
         <button class="btn btn-acc btn-sm" onclick="submitPost()">Post</button>
       </div>
@@ -3724,8 +3724,8 @@ let allPosts=[...SEED_POSTS];
 let currentTab='all';
 let votedPosts=new Set();
 
-const FLAIR={watching:{cls:'flair-watching',label:'▶ Watching'},discussion:{cls:'flair-discussion',label:'💬 Discussion'},rec:{cls:'flair-rec',label:'⭐ Rec'},wrapped:{cls:'flair-wrapped',label:'🎁 Wrapped'}};
-const TYPE_ICONS={watching:'📺',discussion:'💬',rec:'⭐',wrapped:'🎁'};
+const FLAIR={watching:{cls:'flair-watching',label:'Watching'},discussion:{cls:'flair-discussion',label:'Discussion'},rec:{cls:'flair-rec',label:'Recommendation'},wrapped:{cls:'flair-wrapped',label:'Wrapped'}};
+const TYPE_ICONS={watching:'',discussion:'',rec:'',wrapped:''};
 
 function flairHtml(type){const f=FLAIR[type]||FLAIR.discussion;return`<span class="post-flair ${f.cls}">${f.label}</span>`}
 
@@ -3756,7 +3756,7 @@ function renderFeed(){
 
 function renderPost(p){
   const ac=avatarColor(p.author);
-  const showBadge=p.show?`<div class="post-show-badge">📺 ${p.show}${p.ep?' · Ep '+p.ep:''}</div>`:'';
+  const showBadge=p.show?`<div class="post-show-badge"> ${p.show}${p.ep?' · Ep '+p.ep:''}</div>`:'';
   const commHtml=p.comments.map(c=>`
     <div class="comment">
       <div class="avatar" style="background:${avatarColor(c.author)};width:28px;height:28px;font-size:11px;flex-shrink:0">${initials(c.author)}</div>
@@ -3872,7 +3872,7 @@ function updateSidebar(){
   document.getElementById('nowWatchingList').innerHTML=watching.length
     ?watching.map(p=>`
       <div class="watching-card">
-        <div class="watching-thumb">📺</div>
+        <div class="watching-thumb"></div>
         <div class="watching-info">
           <div class="watching-show">${p.show||'Unknown'}</div>
           <div class="watching-ep">${p.ep?'Episode '+p.ep:'Now watching'}</div>
