@@ -3780,7 +3780,7 @@ function renderPost(p){
         ${votedPosts.has(p.id)?'▲':'△'} <span id="votes_${p.id}">${p.votes}</span>
       </button>
       <button class="post-comment-btn" onclick="toggleComments('${p.id}')">
-        💬 ${p.comments.length} comment${p.comments.length!==1?'s':''}
+         ${p.comments.length} comment${p.comments.length!==1?'s':''}
       </button>
     </div>
     <div class="comment-section" id="comments_${p.id}">
